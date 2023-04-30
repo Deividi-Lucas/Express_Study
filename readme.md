@@ -35,17 +35,3 @@ app.listen(port, ()=>{
 ```
 node index.js
 ```
-
----
-
-#### Complementação do projeto.
-
-Utilizar a ferramenta nodemon, para reiniciar o servidor automaticamente
-
-Utilizar MongoDB como banco de dados que utiliza o mongoose.
-
-Utilizar dotenv para ler e mensagem .env que é senha e user do banco de dados
-
----
-
-### Criado por Deividi Lucas

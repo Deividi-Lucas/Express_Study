@@ -9,6 +9,13 @@ let Password = process.env.Password
 
 app.use(express.json())
 
+const Schema = mongoose.Schema({
+  title: String,
+  descrition: String
+})
+
+const Text = mongoose.model('Texto', Schema)
+
 mongoose
   .connect(
     `mongodb+srv://${User}:${Password}@cluster0.6xvbxxi.mongodb.net/test`

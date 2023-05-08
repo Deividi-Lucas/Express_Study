@@ -9,12 +9,12 @@ let Password = process.env.Password
 
 app.use(express.json())
 
-const Schema = mongoose.Schema({
+const Schema = new mongoose.Schema({
   title: String,
   descrition: String
 })
 
-const Text = mongoose.model('Texto', Schema)
+const Text = mongoose.model('QualquerNomeParaTeste', Schema)
 
 mongoose
   .connect(
@@ -25,22 +25,28 @@ mongoose
   })
   .catch(err => console.log(err))
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
   res.send('Server test')
 })
 
-app.post('/post', (req, res) => {
-  const title = req.body
+app.post('/create', async (req, res) => {
+  const id = req.params
+  const { title, descrition } = req.body
 
-  // Os dados são inseridos no json da seguinte forma
-  // [
-  //   {
-  //     'title': 'dados'
-  //   }
-  // ]
+  const response = await Text.create({ title, descrition })
 
-  let response = title
+  res.send(response)
+})
 
+app.get('/list', async (req, res) => {
+  const users = await Text.find()
+  res.send(users)
+})
+
+app.delete('/delete', async (req, res) => {
+  const { id } = req.params
+
+  const response = await Text.findOneAndDelete(id)
   res.send(response)
 })
 

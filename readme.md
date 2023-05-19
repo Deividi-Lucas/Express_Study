@@ -35,3 +35,40 @@ app.listen(port, ()=>{
 ```
 node index.js
 ```
+
+---
+
+## Uso no Insomnia
+
+Rotas
+
+- http://localhost:3000/
+  Essa rota é para teste se o servidor subiu na máquina
+- http://localhost:3000/list
+  Rota para listagem de todo material no banco de dados
+- http://localhost:3000/create
+  Rota para criação de tabela com os dados inseridos
+- http://localhost:3000/delete
+  Rota para deletar tabela no banco de dados com o ID
+
+### Inserção de dados
+
+Exemplo de Post :
+
+```
+{
+    "title":"Limpeza",
+    "descrition":"Fazer limpeza no Quarto, cozinha e sala. Também limpar área de casa"
+}
+```
+
+Saída do post:
+
+```
+{
+	"title": "Limpeza",
+	"descrition": "Fazer limpeza no Quarto, cozinha e sala. Também limpar área de casa",
+	"_id": "6466bc65d8359f93d19ca55c",
+	"__v": 0
+}
+```
